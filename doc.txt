@@ -16,15 +16,23 @@
 
 详细设计：
 	
-	基本的用例有：用户发帖 用户回帖 用户搜索
+	基本的用例有：推视频 找视频 看视频 聊视频 求视频 
 
-	基本的数据流：用户 贴子 回帖 标签
+	基本的数据流：用户 视频 推荐 评论 标签
 
 	基本的表结构：
 		
-		1)用户：id, name, password, post_ids, 
+		1)用户：id, name, password, logo, has_msg, join_time 
 
-		2)帖子：id, user_id, user_name, title, url, video_url, tags,  
+		2)视频：id, title, video_url, url, share
+
+		3)推荐：id, video_id, video_title, video_url, user_id, user_name, co
+		
+				ntent, tags, good, bad, forward, time
+		
+		4)评论：id, share_id, user_id, user_name, content, time
+
+		5)标签：id, name, count
 
 
 
