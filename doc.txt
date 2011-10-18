@@ -1,53 +1,47 @@
 
-主要的功能：
+***主要的功能：
 
-1)用户发贴，主要有视频分享贴，视频需求贴，正常内容贴
-  视频分享贴分享用户喜爱的视频，该视频符合部分人群的兴趣从而提高视频的点击
-  视频需求贴帮助用户寻找指定的视频，通过其他用户找到目标视频
-  正常内容贴便于用户发表观点和意见，提高用户的体验和粘性
+1)推荐分享视频，主要有站外视频推荐和站内视频推荐
+	
+	用户推荐分享喜爱的视频，该视频符合部分人群的兴趣从而提高视频的点击
   
-2)用户回帖，基于分享的视频的交流观点，提高用户互动的针对性一致性
+2)用户评论，基于分享的视频的交流观点，提高用户互动的针对性一致性
 
 3)帖子标签 视频搜索，便于用户快速定位
 
-网站是基于视频(前期主要是搞笑 原创等视频)的用户分享交流社区，旨在为用户对目
+	网站是基于视频(主要为各大视频网站的)的分享交流社区，其视频为用户喜爱且乐于推荐分享的，
 
-标视频和交互提高快捷的通道。
+旨在为用户对目标视频和交互提高快捷的通道。
 
-详细设计：
+***详细设计：
 	
-	基本的用例有：推视频 找视频 看视频 聊视频 求视频 
+	全站的核心内容为用户视频的推荐分享，通过良好的交互环境(醒目的交互显示,及时的消息反馈)为用户
+	
+	获取目标视频提供捷径，培养用户推荐分享视频的习惯。故作为冗余的动态表中只保存最新的100条数据
 
-	基本的数据流：用户 视频 推荐 评论 标签
+	便于首页的查找显示。
+
+	基本的用例有：推视频 找视频 看视频 聊视频 求视频 查消息 看动态 
+
+	基本的数据流：用户 视频 标签 消息 动态 推荐 评论
 
 	基本的表结构：
 		
-		1)用户：id, name, password, logo, has_msg, join_time 
+		1)用户(User)：id, name, password, logo, has_message, join_time 
 
-		2)视频：id, title, video_url, url, share
+		2)视频(Video)：id, title, video_url, url, share
 
-		3)推荐：id, video_id, video_title, video_url, user_id, user_name, co
+		3)推荐(Share)：id, video_id, video_title, video_url, user_id, user_n
 		
-				ntent, tags, good, bad, forward, time
+					   ame, content, tags, good, bad, forward, time
 		
-		4)评论：id, share_id, user_id, user_name, content, time
+		4)评论(Comment)：id, share_id, video_title, user_id, user_name, content, type, time
 
-		5)标签：id, name, count
+		5)标签(Tag)：id, name, count
 
+		6)消息(Message)：id, user_id, user_name, receive_user_id, share_id, video_title, time
 
+		7)动态(Dynamic): id, video_id, video_title, video_url, user_id, user_name, content, type
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		                  , tags, good, bad, forward, time
 
