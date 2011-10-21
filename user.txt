@@ -1,0 +1,17 @@
+用户模块功能
+	
+	User：id  name  password  logo  has_message  join_time 
+	
+	基本CRUD功能实现
+
+		1）用户密码加密实现：在User中所用虚拟属性(pwd)和钩子方法(validates_confirmation_of),虚拟
+		
+		属性用于设置User的加密密码，钩子方法确保二次输入密码的一致性。
+
+		2）注册时的错误提示信息显示：在所用中文的文件开头加#encoding: utf-8，:message设置错误提
+		
+		示信息并在页面中通过@object.errors[:attribute][0]显示
+
+		3）简单登录权限拦截功能放在Application中实现 在需要的控制器中通过befor_filter设置
+		
+		4）头像上传实现 以用户的id为头像的名称,参考http://www.iteye.com/topic/437357
