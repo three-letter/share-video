@@ -1,6 +1,8 @@
 
 start github for social programming
 
+forker submit
+
 ***主要的功能：
 
 1)推荐分享视频，主要有站外视频推荐和站内视频推荐
